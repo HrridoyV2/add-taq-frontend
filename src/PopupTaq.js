@@ -23,10 +23,10 @@ function PopupTaq({show, setShow, allCountry, selectedCountry}) {
   }
     return (
         <>
-        {/* <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
           </Modal.Header>
-         */}  <input type="text" className="form-control my-3"
+          <input type="text" className="form-control my-3"
           onChange={(e) => setInput(e.target.value)}
           />
 
@@ -40,7 +40,7 @@ function PopupTaq({show, setShow, allCountry, selectedCountry}) {
               fromPopup.map((country) => <button>{country}</button>)
               
           }
-        {/* </Modal> */}
+        </Modal>
       </>
     )
 }

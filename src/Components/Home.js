@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import PopupTaq from '../PopupTaq';
-
+import { FiPlusCircle } from "react-icons/fi";
+import { Button, Modal } from 'react-bootstrap';
+import rightArrow from '../right-arrow.jpg'
+import loading from '../loading.gif'
 function Home() {
     const [allCountry, setAllCountry] = useState([]);
 const [text, setText] = useState("");
@@ -44,16 +46,67 @@ const submitValues = () => {
       }
     })
 }
+//
+const result = [];
+const handleClose = () => setShow(false);
+const [input, setInput] = useState("null");
+allCountry.map((country) => {
+  if(country.name.toLowerCase().includes(input.toLowerCase()) ) {
+      
+      result.push(country.name);
+  }
+})
+
+//
+  const [demo, setDemo] = useState(["one"]);
+  const [yes, setYes] = useState(false)
+
+  
+  useEffect(() => {
+    
+  },[demo])
+    
+// 
     return (
-        <div>
-            <input type="text" className="form-control mt-5 w-25" placeholder="Write your text here"
+        <div className="main_page">
+          <button onClick={() => {
+        demo.push("six")
+        console.log(demo);
+          }}>add</button>
+          {
+            demo.map((i) => <button>{i}</button>)
+          }
+          <Modal show={show} onHide={handleClose} animation={false}>
+          <Modal.Header closeButton>
+          </Modal.Header>
+          <div className="container">
+            <input type="text" className="form-control my-3"
+          onChange={(e) => setInput(e.target.value)}
+          />
+          {
+              result.map((country) => (
+                  <div className="d-flex"><p>{country}</p><FiPlusCircle value={country} onClick={(e) => {
+                    dibana.push(e.target.value)
+                    console.log(selectedCountry, dibana);
+                  }} className="add_sign" ></FiPlusCircle></div>
+              ))
+          }
+          </div>          
+        </Modal>
+            <input type="text" className="form-control my-4 w-50" placeholder="Write your text here"
       onChange={(e) => setText(e.target.value)}
+      style={{border: 'none',borderBottom: '1px solid #ced4da',}}
       />
       {
-        dibana.map((country) => <button>{country}</button>)
-      }<button onClick={() => setShow(true)}>+add taq</button>
-      <PopupTaq show={show} setShow={setShow} allCountry={allCountry} setAllCountry={setAllCountry} selectedCountry={selectedCountry} tagFromPopup={taqFromPopup} /><br/>
-      <button onClick={submitValues}>Submit</button>
+        dibana.map((country) => <button className="taq_name">{country}</button>)
+      }<button onClick={() => setShow(true)} className="taq_name bg-light">+add taq</button>
+      {/* <h3> Lets go for a <FiPlusCircle style={{color:"grey"}} />? </h3> */}
+      
+      {/* { 
+        demo.map((i) => <button className="taq_name">{i}</button>)
+      } */}<br />
+      <img onClick={submitValues} className="submit_arrow" src={rightArrow} alt="right" />
+      {/* <img src={loading} className="h-25" alt="right" /> */}
         </div>
     )
 }
