@@ -20,7 +20,7 @@ useEffect(() => {
       }
     })  
   })
-console.log("From app",selectedCountry);
+
   function uniq(a) {
     return a.sort().filter(function(item, pos, ary) {
         return !pos || item != ary[pos - 1];
