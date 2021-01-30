@@ -10,6 +10,7 @@
   border-radius: 7px;
   width: 100px;
   margin-right: 5px;
+  margin-bottom: 15px;
 }
 .taq_name:hover {
   background-color: 
@@ -22,7 +23,7 @@
   margin-left: auto;
   cursor: pointer;
   margin-right: 50px;
-  margin-top: -40px;
+  margin-top: -10px;
 }
 .add_sign {
   height: 2em;
@@ -32,4 +33,8 @@
   display: inline-block;
   margin-left: auto;
   margin-right: 30px;
+}
+.loading {
+  width: 410px;
+  height: 210px;
 }
