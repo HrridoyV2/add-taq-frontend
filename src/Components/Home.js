@@ -83,7 +83,7 @@ allCountry.map((country) => {
         <div className="main_page">
           
           {content && <div className="content">
-          <Modal show={show} onHide={handleClose} animation={false}>
+          <Modal className="mt-4" show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
           </Modal.Header>
           <div className="container">
@@ -104,7 +104,8 @@ allCountry.map((country) => {
             }
           </div>          
         </Modal>
-            <input type="text" className="form-control my-4 w-50" placeholder="Write your text here"
+            <div className="mt-5">
+          <input type="text" className="form-control my-4 w-50" placeholder="Write your text here"
       onChange={(e) => setText(e.target.value)}
       style={{border: 'none',borderBottom: '1px solid #ced4da',}}
       />
@@ -115,12 +116,13 @@ allCountry.map((country) => {
       <br />
       
       <img onClick={submitValues} className="submit_arrow" src={rightArrow} alt="right" />
+      </div>
           </div>}
           {loading && <div>
           <Alert variant="warning" style={{marginTop: "100px"}}>Submitting record, Please wait a moment</Alert>
       </div>}
           {success &&
-            <Alert className="bg-light text-center text-secondary" style={{marginTop: "100px"}}>Activity saved</Alert>}
+            <Alert variant="success" className="text-center text-secondary" style={{marginTop: "100px"}}>Activity saved</Alert>}
       
         </div>
     )
