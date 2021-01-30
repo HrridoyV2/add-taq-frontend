@@ -105,7 +105,7 @@ allCountry.map((country) => {
           </div>          
         </Modal>
             <div className="mt-5">
-          <input type="text" className="form-control my-4 w-50" placeholder="Write your text here"
+          <input type="text" className="form-control my-4 w-85" placeholder="Write your text here"
       onChange={(e) => setText(e.target.value)}
       style={{border: 'none',borderBottom: '1px solid #ced4da',}}
       />
