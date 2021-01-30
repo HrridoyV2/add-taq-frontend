@@ -54,9 +54,10 @@ const submitValues = () => {
 //
 const result = [];
 const handleClose = () => setShow(false);
+console.log("null".indexOf("nul"));
 const [input, setInput] = useState("null");
 allCountry.map((country) => {
-  if(country.name.toLowerCase().includes(input.toLowerCase()) ) {
+  if(country.name.toLowerCase().indexOf(input.toLowerCase())  == 0) {
       
       result.push(country.name);
   }
@@ -77,7 +78,7 @@ allCountry.map((country) => {
   const finalTaqs = temp.concat(list)
   
 // 
-console.log("list",list);
+
     return (
         <div className="main_page">
           
@@ -86,19 +87,21 @@ console.log("list",list);
           <Modal.Header closeButton>
           </Modal.Header>
           <div className="container">
-            {
-              list.map((country) => <button>{country}</button>)
-            }
+            
             <input type="text" className="form-control my-3"
           onChange={(e) => setInput(e.target.value)}
+          placeholder="Write here first portion"
           />
           {
               result.map((country) => (
-                  <div className="d-flex"><p>{country}</p><button  value={country} onClick={handleAdd} >
-                    <FiPlusCircle className="add_sign" ></FiPlusCircle>
+                  <div className="d-flex"><p>{country}</p><button className="plus_sign"  value={country} onClick={handleAdd} >
+                    +
                   </button></div>
               ))
           }
+          {
+              list.map((country) => <button className="taq_name">{country}</button>)
+            }
           </div>          
         </Modal>
             <input type="text" className="form-control my-4 w-50" placeholder="Write your text here"
@@ -114,12 +117,11 @@ console.log("list",list);
       <img onClick={submitValues} className="submit_arrow" src={rightArrow} alt="right" />
           </div>}
           {loading && <div>
-          <Alert variant="warning" className="mt-5">Submitting record, Please wait a moment</Alert>
+          <Alert variant="warning" style={{marginTop: "100px"}}>Submitting record, Please wait a moment</Alert>
       </div>}
           {success &&
-            <Alert className="bg-light text-center text-secondary mt-5">Activity saved</Alert>}
-      {/* {loading && <img src={loading} className="loading" alt="right" />
-      <Alert variant="warning">Submitting record, Please wait a moment</Alert> } */}
+            <Alert className="bg-light text-center text-secondary" style={{marginTop: "100px"}}>Activity saved</Alert>}
+      
         </div>
     )
 }

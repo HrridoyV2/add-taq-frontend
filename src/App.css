@@ -25,11 +25,14 @@
   margin-right: 50px;
   margin-top: -10px;
 }
-.add_sign {
+.plus_sign {
   height: 2em;
   width: 2em;
   color: grey;
   cursor: pointer;
+  background-color: #fff;
+  font-size: 25px;
+  border: none;
   display: inline-block;
   margin-left: auto;
   margin-right: 30px;
